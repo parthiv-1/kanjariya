@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Detail Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4c8bb0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .addressform{
+            height: 500px;
+            width: 500px;
+        }
+        .container {
+            padding: 20px;
+            max-width: 400px;
+            margin: 30px auto;
+            background-color: rgb(200, 115, 41);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #a442b7;
+            border-radius: 4px;
+        }
+        .form-group button {
+            width: 90%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #38cfb3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Address Detail Form</h1>
+        </div>
+        <form id="addressForm" style="height: 500px;">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="streetAddress">Street Address</label>
+                <input type="text" id="streetAddress" name="streetAddress" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" required>
+            </div>
+            <div class="form-group">
+                <label for="pinCode">Zip Code</label>
+                <input type="text" id="zipcode" name="pinCode" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" name="country" required>
+                    <option value="">Select a country</option>
+                    <option value="USA">USA</option>
+                    <option value="india">india</option>
+                    <option value="UK">UK</option>
+                    <option value="Australia">Australia</option>
+                    <!-- Add more countries as needed -->
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('addressForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const formDetails = Object.fromEntries(formData.entries());
+            
+            console.log('Form Submitted:', formDetails);
+
+            alert('Form submitted successfully!');
+        });
+    </script>
+</body>
+</html>
